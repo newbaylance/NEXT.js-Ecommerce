@@ -1,4 +1,4 @@
-# GC02
+# My eCommerce App
 
 ## Tujuan Pembelajaran
 
