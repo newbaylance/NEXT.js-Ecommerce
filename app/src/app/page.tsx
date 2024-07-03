@@ -10,7 +10,7 @@ export default function Home() {
       <Hero/>
     </div>
     <div className="m-4">
-      <Link href={"/login"} className="flex items-center justify-end font-bold mt-4 mb-2 text-base underline hover:no-underline">See all products</Link>
+      <Link href={"/products"} className="flex items-center justify-end font-bold mt-4 mb-2 text-base underline hover:no-underline">See all products</Link>
       <Carousel/>
     </div>
     <div className="hero bg-base-200 min-h-screen">
