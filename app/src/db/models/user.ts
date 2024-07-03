@@ -1,11 +1,12 @@
 import { ObjectId } from "mongodb";
 import { connect, getDB } from "../config";
 import { hashPassword } from "../helpers/bcrypt";
+import { string } from "zod";
 
 const COLLECTION_USER = "users"
 
 export interface UserModel {
-    _id: ObjectId
+    _id: ObjectId | string
     name: string
     username: string
     email: string
@@ -13,7 +14,6 @@ export interface UserModel {
 }
 
 export type UserModelInput = Omit<UserModel, "_id">
-export type LoginModelInput = Omit<UserModel, "_id" | "name" | "username">
 
 export const createUser = async (user: UserModelInput) => {
     const db = await getDB()
@@ -27,11 +27,18 @@ export const createUser = async (user: UserModelInput) => {
     return newUser
 }
 
-export const getUserByEmail = async (user: LoginModelInput) => {
+export const getUserByEmail = async (email: string) => {
     const db = await getDB()
 
-    const findUser = await db.collection(COLLECTION_USER).findOne({email: user.email}, {projection: {password: 0}}) as UserModel
+    const findUser = await db.collection(COLLECTION_USER).findOne({email})
 
     return findUser
 }
 
+export const getUserByUsername = async (username: string) => {
+    const db = await getDB()
+
+    const findUser = await db.collection(COLLECTION_USER).findOne({username})
+
+    return findUser
+}

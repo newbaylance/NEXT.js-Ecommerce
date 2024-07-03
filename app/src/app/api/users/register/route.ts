@@ -1,4 +1,4 @@
-import { createUser } from "@/db/models/user";
+import { createUser, getUserByEmail, getUserByUsername } from "@/db/models/user";
 import { z } from "zod";
 
 export async function POST(request: Request) {
@@ -11,11 +11,34 @@ export async function POST(request: Request) {
             email: z.string().email().nonempty("required"),
             password: z.string().min(5).nonempty("required")
         })
-        .required()
         .safeParse(data)
 
         if(!parsedData.success) {
             throw parsedData.error
+        }
+
+        const findUsername = await getUserByUsername(data.username)
+        if(findUsername) {
+            return Response.json(
+                {
+                    message: "Username Must Be Unique",
+                },
+                {
+                    status: 400,
+                },
+            )
+        }
+
+        const findEmail = await getUserByEmail(data.email)
+        if(findEmail) {
+            return Response.json(
+                {
+                    message: "Email Must Be Unique",
+                },
+                {
+                    status: 400,
+                },
+            )
         }
 
         const newUser = await createUser(data)
