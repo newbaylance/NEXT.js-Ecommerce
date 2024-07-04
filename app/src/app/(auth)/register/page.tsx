@@ -1,6 +1,9 @@
+import Notification from "@/components/Notification";
+import { error } from "console";
 import { cookies } from "next/headers";
 import Link from "next/link";
 import { redirect } from "next/navigation";
+import Swal from "sweetalert2";
 
 interface MyResponse {
   message: string
@@ -15,7 +18,8 @@ export default function Register() {
 
     const handleRegister = async (formData: FormData) => {
       "use server"
-  
+      
+      // let error = false as boolean
       
       const name = formData.get("name")
       const username = formData.get("username")
@@ -33,20 +37,24 @@ export default function Register() {
       })
   
       const result = (await response.json()) as MyResponse
-  
+      
+      // error = !response.ok
+      
       if(!response.ok) {
         return redirect("/register?error=" + result.message)
       }
+
   
       return redirect("/login")
     }
 
 
-
   
     return(
+      
 <div className="flex items-center justify-center min-h-screen">
   <div className="w-full sm:w-80">
+    <Notification/>
     <h1 className="flex items-center justify-center font-bold mb-10 text-2xl">Register</h1>
     <form action={handleRegister}>
     <label className="input input-bordered flex items-center gap-4 mb-4">

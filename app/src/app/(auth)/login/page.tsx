@@ -1,4 +1,5 @@
 
+import Notification from "@/components/Notification";
 import { cookies } from "next/headers";
 import Link from "next/link";
 import { redirect } from "next/navigation";
@@ -50,6 +51,7 @@ export default function Login() {
     return(
     <div className="flex items-center justify-center min-h-screen">
       <div className="w-full sm:w-80">
+        <Notification/>
         <h1 className="flex items-center justify-center font-bold mb-10 text-2xl">Login</h1>
         <form action={handleLogin}>
         <label className="input input-bordered flex items-center gap-4 mb-4">
