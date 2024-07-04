@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import RequireLogin from "@/components/requireLogin";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -14,10 +15,8 @@ export default function WishlistLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <>
-      <Navbar/>
+    <RequireLogin>
         {children}
-      <Footer/>
-    </>
+    </RequireLogin>
   );
 }

@@ -1,6 +1,17 @@
+import { deleteCookies } from "@/action";
+import { cookies } from "next/headers";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 
-export default function Navbar() {
+export default async function Navbar() {
+  "use server"
+  const cookiesAuth = cookies().get("Authorization")
+
+  // async function deleteCookies() {
+  //   cookies().delete("Authorization")
+  //   redirect("/login")
+  // }
+
     return(
 <div className="navbar bg-base-100">
   <div className="navbar-start">
@@ -23,13 +34,6 @@ export default function Navbar() {
         tabIndex={0}
         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
         <li><Link href={"/products"}>Products</Link></li>
-        <li>
-          <a>Parent</a>
-          <ul className="p-2">
-            <li><a>Submenu 1</a></li>
-            <li><a>Submenu 2</a></li>
-          </ul>
-        </li>
         <li><Link href={"/wishlist"}>Wishlist</Link></li>
       </ul>
     </div>
@@ -38,20 +42,14 @@ export default function Navbar() {
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
       <li><Link href={"/products"}>Products</Link></li>
-      <li>
-        <details>
-          <summary>Parent</summary>
-          <ul className="p-2">
-            <li><a>Submenu 1</a></li>
-            <li><a>Submenu 2</a></li>
-          </ul>
-        </details>
-      </li>
       <li><Link href={"/wishlist"}>Wishlist</Link></li>
     </ul>
   </div>
   <div className="navbar-end">
-    <Link href={"/login"} className="btn">Login</Link>
+    <form action={deleteCookies}>
+      <button className="btn" type="submit">{(cookiesAuth) ? "Logout" : "Login"}</button>
+    </form>
+    {/* <Link href={"/login"} className="btn">{(cookiesAuth) ? "Logout" : "Login"}</Link> */}
   </div>
 </div>
     )

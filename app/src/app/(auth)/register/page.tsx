@@ -1,6 +1,15 @@
+import { cookies } from "next/headers";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 
 export default function Register() {
+  const cookiesAuth = cookies().get("Authorization")
+
+  if(cookiesAuth) {
+      redirect("/")
+  }
+
+  
     return(
 <div className="flex items-center justify-center min-h-screen">
   <div className="w-full sm:w-80">

@@ -9,6 +9,12 @@ interface MyResponse<T> {
 }
 
 export default function Login() {
+  const cookiesAuth = cookies().get("Authorization")
+
+        if(cookiesAuth) {
+            redirect("/")
+        }
+
   const handleLogin = async (formData: FormData) => {
     "use server"
 

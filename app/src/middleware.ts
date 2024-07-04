@@ -6,6 +6,7 @@ import { getUserByEmail } from "./db/models/user";
 const SECRET = process.env.SECRET as string
 
 export async function middleware(request:NextRequest) {
+    "use server"
     try {
         const cookiesAuth = cookies().get("Authorization")
 
@@ -29,10 +30,10 @@ export async function middleware(request:NextRequest) {
         const email = decoded.payload.email as string
         const id = decoded.payload._id as string
 
-        // const findUser = await getUserByEmail(email)
-        // if(!findUser) {
-        //     throw new Error("Invalid Token")
-        // }
+        const findUser = await getUserByEmail(email)
+        if(!findUser) {
+            throw new Error("Invalid Token")
+        }
 
         const reqHeaders = new Headers(request.headers)
         reqHeaders.set("x-user-id", id)
@@ -65,5 +66,5 @@ export async function middleware(request:NextRequest) {
 }
 
 export const config = {
-    matcher: ["/api/:path*"]
+    matcher: ["/api/products"]
 }
