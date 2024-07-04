@@ -1,0 +1,142 @@
+[
+    {
+        "name": "Nike Air Max",
+        "size": 44,
+        "description": "Comfortable running shoes with air cushioning.",
+        "category": "Running",
+        "imageUrl": "https://example.com/images/nike-air-max.jpg"
+    },
+    {
+        "name": "Adidas Ultraboost",
+        "size": 43,
+        "description": "High-performance shoes with Boost technology.",
+        "category": "Running",
+        "imageUrl": "https://example.com/images/adidas-ultraboost.jpg"
+    },
+    {
+        "name": "Puma Suede Classic",
+        "size": 45,
+        "description": "Classic suede sneakers for everyday wear.",
+        "category": "Casual",
+        "imageUrl": "https://example.com/images/puma-suede-classic.jpg"
+    },
+    {
+        "name": "Reebok Nano X",
+        "size": 44,
+        "description": "Versatile training shoes for various workouts.",
+        "category": "Training",
+        "imageUrl": "https://example.com/images/reebok-nano-x.jpg"
+    },
+    {
+        "name": "Asics Gel-Kayano",
+        "size": 46,
+        "description": "Stability running shoes with Gel cushioning.",
+        "category": "Running",
+        "imageUrl": "https://example.com/images/asics-gel-kayano.jpg"
+    },
+    {
+        "name": "New Balance 574",
+        "size": 43,
+        "description": "Retro-inspired sneakers for casual wear.",
+        "category": "Casual",
+        "imageUrl": "https://example.com/images/new-balance-574.jpg"
+    },
+    {
+        "name": "Under Armour HOVR",
+        "size": 45,
+        "description": "High-tech running shoes with HOVR technology.",
+        "category": "Running",
+        "imageUrl": "https://example.com/images/under-armour-hovr.jpg"
+    },
+    {
+        "name": "Converse Chuck Taylor",
+        "size": 44,
+        "description": "Iconic high-top sneakers for everyday style.",
+        "category": "Casual",
+        "imageUrl": "https://example.com/images/converse-chuck-taylor.jpg"
+    },
+    {
+        "name": "Vans Old Skool",
+        "size": 42,
+        "description": "Classic skate shoes with a durable design.",
+        "category": "Skate",
+        "imageUrl": "https://example.com/images/vans-old-skool.jpg"
+    },
+    {
+        "name": "Brooks Ghost",
+        "size": 44,
+        "description": "Neutral running shoes with smooth transitions.",
+        "category": "Running",
+        "imageUrl": "https://example.com/images/brooks-ghost.jpg"
+    },
+    {
+        "name": "Saucony Triumph",
+        "size": 45,
+        "description": "Cushioned running shoes for long-distance comfort.",
+        "category": "Running",
+        "imageUrl": "https://example.com/images/saucony-triumph.jpg"
+    },
+    {
+        "name": "Hoka One One Clifton",
+        "size": 46,
+        "description": "Lightweight running shoes with maximum cushioning.",
+        "category": "Running",
+        "imageUrl": "https://example.com/images/hoka-clifton.jpg"
+    },
+    {
+        "name": "Mizuno Wave Rider",
+        "size": 43,
+        "description": "Responsive running shoes with Wave technology.",
+        "category": "Running",
+        "imageUrl": "https://example.com/images/mizuno-wave-rider.jpg"
+    },
+    {
+        "name": "Fila Disruptor",
+        "size": 44,
+        "description": "Chunky sneakers with a retro design.",
+        "category": "Casual",
+        "imageUrl": "https://example.com/images/fila-disruptor.jpg"
+    },
+    {
+        "name": "Skechers D'Lites",
+        "size": 43,
+        "description": "Comfortable sneakers with a stylish look.",
+        "category": "Casual",
+        "imageUrl": "https://example.com/images/skechers-dlites.jpg"
+    },
+    {
+        "name": "Jordan Air Jordan 1",
+        "size": 45,
+        "description": "Iconic basketball shoes with a timeless design.",
+        "category": "Basketball",
+        "imageUrl": "https://example.com/images/jordan-air-jordan-1.jpg"
+    },
+    {
+        "name": "Salomon Speedcross",
+        "size": 44,
+        "description": "Trail running shoes with aggressive grip.",
+        "category": "Trail Running",
+        "imageUrl": "https://example.com/images/salomon-speedcross.jpg"
+    },
+    {
+        "name": "Merrell Moab",
+        "size": 46,
+        "description": "Hiking shoes with durable construction.",
+        "category": "Hiking",
+        "imageUrl": "https://example.com/images/merrell-moab.jpg"
+    },
+    {
+        "name": "Timberland PRO",
+        "size": 44,
+        "description": "Work boots with premium protection and comfort.",
+        "category": "Work",
+        "imageUrl": "https://example.com/images/timberland-pro.jpg"
+    },
+    {
+        "name": "Columbia Newton Ridge",
+        "size": 45,
+        "description": "Waterproof hiking boots for rugged terrain.",
+        "category": "Hiking",
+        "imageUrl": "https://example.com/images/columbia-newton-ridge.jpg"
+    }
+]
