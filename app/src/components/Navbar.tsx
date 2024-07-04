@@ -49,7 +49,6 @@ export default async function Navbar() {
     <form action={deleteCookies}>
       <button className="btn" type="submit">{(cookiesAuth) ? "Logout" : "Login"}</button>
     </form>
-    {/* <Link href={"/login"} className="btn">{(cookiesAuth) ? "Logout" : "Login"}</Link> */}
   </div>
 </div>
     )

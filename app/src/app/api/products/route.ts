@@ -1,4 +1,4 @@
-import { createProduct } from "@/db/models/product";
+import { createProduct, getProduct } from "@/db/models/product";
 import { z } from "zod";
 
 export async function POST(request: Request) {
@@ -49,6 +49,29 @@ export async function POST(request: Request) {
             )
         }
 
+        return Response.json(
+            {
+                message: `Internal Server Error`
+            },
+            {
+                status: 500
+            }
+        )
+    }
+}
+
+export async function GET() {
+    try {
+        const allProducts = await getProduct()
+
+        return Response.json(
+            {
+                message: "All Products",
+                data: allProducts
+            }
+        )
+    } catch (error) {
+        console.log(error);
         return Response.json(
             {
                 message: `Internal Server Error`

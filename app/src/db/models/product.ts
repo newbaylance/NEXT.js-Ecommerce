@@ -7,10 +7,15 @@ const COLLECTION_PRODUCT = "products"
 export interface ProductModel {
     _id: ObjectId | string
     name: string
-    size: number
+    slug: string
     description: string
-    category: string
-    imageUrl: string
+    excerpt: string
+    price: number
+    tags: string[]
+    thumbnail: string
+    image: string
+    createdAt: Date
+    updatedAt: Date
 }
 
 
@@ -25,4 +30,18 @@ export const createProduct = async (product: ProductModelInput) => {
     const newProduct = await db.collection(COLLECTION_PRODUCT).insertOne(modifiedProduct)
 
     return newProduct
+}
+
+export const getProduct = async () => {
+    const db = await getDB()
+    const getProducts = await db.collection(COLLECTION_PRODUCT).find().toArray()
+
+    return getProducts
+}
+
+export const getProductBySlug = async (slug: string) => {
+    const db = await getDB()
+    const data = await db.collection(COLLECTION_PRODUCT).findOne({slug})
+
+    return data
 }

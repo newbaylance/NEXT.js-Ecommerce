@@ -6,8 +6,9 @@ import { getUserByEmail } from "./db/models/user";
 const SECRET = process.env.SECRET as string
 
 export async function middleware(request:NextRequest) {
-    "use server"
+    
     try {
+        console.log("middleware alannnnnnnnnnnnn")
         const cookiesAuth = cookies().get("Authorization")
 
         if(!cookiesAuth) {
@@ -28,23 +29,31 @@ export async function middleware(request:NextRequest) {
 
         console.log(decoded, "decodeddddddddddddddddddddddddd")
         const email = decoded.payload.email as string
-        const id = decoded.payload._id as string
+        const userId = decoded.payload._id as string
 
-        const findUser = await getUserByEmail(email)
-        if(!findUser) {
-            throw new Error("Invalid Token")
-        }
+        // const findUser = await getUserByEmail(email)
+        // if(!findUser) {
+        //     throw new Error("Invalid Token")
+        // }
 
         const reqHeaders = new Headers(request.headers)
-        reqHeaders.set("x-user-id", id)
-        reqHeaders.set("x-user-emai", email)
+        reqHeaders.set("x-user-id", userId)
+        reqHeaders.set("x-user-email", email)
 
-        return NextResponse.next({
+        console.log(`Middleware - New Headers: ${reqHeaders.get('x-user-id')}, ${reqHeaders.get('x-user-email')}`);
+
+        const response = NextResponse.next({
             request: {
-                headers: reqHeaders
-            }
-        })
+                headers: reqHeaders,
+            },
+        });
 
+        return response
+
+        // if(request.nextUrl.pathname.startsWith("/api/wishlists")) {
+        //     console.log("ini ke", request.nextUrl)
+        // }
+        // return NextResponse.next()
        
     } catch (error) {
         console.log(error, "errorrrrrrrrrrrrrrrrr")
@@ -66,5 +75,5 @@ export async function middleware(request:NextRequest) {
 }
 
 export const config = {
-    matcher: ["/products/:path*"]
+    matcher: ['/api/wishlists']
 }

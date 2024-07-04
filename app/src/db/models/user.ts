@@ -1,7 +1,7 @@
 import { ObjectId } from "mongodb";
 import { connect, getDB } from "../config";
 import { hashPassword } from "../helpers/bcrypt";
-import { string } from "zod";
+
 
 const COLLECTION_USER = "users"
 
