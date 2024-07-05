@@ -29,7 +29,7 @@ export default function Wishlists() {
     }
 
     async function deleteWishlist(_id: string): Promise<void> {
-        const res = await fetch("http://localhost:3000/api/wishlists", {
+        const res = await fetch("http://localhost:3000/api/wishlists/"+ _id, {
             method: "delete"
         })
 
@@ -39,7 +39,7 @@ export default function Wishlists() {
 
         const data = await res.json()
 
-        setWishlists(data)
+        getWishlists()
     }
 
     useEffect(() => {
@@ -67,7 +67,7 @@ export default function Wishlists() {
                 <tbody>
                 {/* row 1 */}
                 {wishlists.map((el, i) => (
-                    <tr>
+                    <tr key={el._id.toString()}>
                         <th>
                         <label>
                             {i + 1}
@@ -95,7 +95,7 @@ export default function Wishlists() {
                         </td>
                         <td>{el.product.price}</td>
                         <th>
-                            <button className="btn btn-ghost btn-xs" >Delete</button>
+                            <button className="btn btn-ghost btn-xs" onClick={() => deleteWishlist(el._id.toString())}>Delete</button>
                         </th>
                     </tr>
                 ))}

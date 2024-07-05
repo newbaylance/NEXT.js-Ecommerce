@@ -50,6 +50,11 @@ export const getWishlistsByUserId = async(userId: string) => {
               '$match': {
                 'userId': new ObjectId(userId)
               }
+            },
+            {
+              '$sort': {
+                'createdAt': -1
+              }
             }
           ]
     )
