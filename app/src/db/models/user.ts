@@ -35,6 +35,14 @@ export const getUserByEmail = async (email: string) => {
     return findUser
 }
 
+export const getUserById = async (_id: string) => {
+    const db = await getDB()
+
+    const findUser = await db.collection(COLLECTION_USER).findOne({_id: new ObjectId(_id)})
+
+    return findUser
+}
+
 export const getUserByUsername = async (username: string) => {
     const db = await getDB()
 
