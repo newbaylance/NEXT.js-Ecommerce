@@ -1,5 +1,6 @@
 
 import { createWishlist, deleteWishlist, getWishlistsByUserId } from "@/db/models/wishlist";
+import { ObjectId } from "mongodb";
 import { headers } from "next/headers";
 
 import { NextRequest, NextResponse } from "next/server";
@@ -10,9 +11,13 @@ export async function POST(request: Request) {
         const data = await request.json()
         console.log(data, "<------- data")
 
+        const headersList = headers()
+        const userId = headersList.get('x-user-id') as string
+
+
+        
 
         const parsedData = z.object({
-            userId: z.string().nonempty(),
             productId: z.string().nonempty()
         })
         .safeParse(data)
@@ -22,7 +27,12 @@ export async function POST(request: Request) {
         }
 
 
-        const newWishlist = await createWishlist(data)
+        const newWishlist = await createWishlist({
+            userId,
+            productId: data.productId,
+            createdAt: new Date(),
+            updatedAt: new Date()
+        })
 
         return Response.json(
         {

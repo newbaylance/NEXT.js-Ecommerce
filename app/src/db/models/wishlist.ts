@@ -6,7 +6,7 @@ const COLLECTION_WISHLIST = "wishlists"
 
 export interface WishlistModel {
     _id: ObjectId
-    userId: ObjectId
+    userId: ObjectId | string
     productId: ObjectId
     createdAt: Date
     updatedAt: Date

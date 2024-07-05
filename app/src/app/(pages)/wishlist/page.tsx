@@ -95,7 +95,7 @@ export default function Wishlists() {
                         </td>
                         <td>{el.product.price}</td>
                         <th>
-                            <button className="btn btn-ghost btn-xs" onClick={deleteWishlist({el._id})}>Delete</button>
+                            <button className="btn btn-ghost btn-xs" >Delete</button>
                         </th>
                     </tr>
                 ))}
