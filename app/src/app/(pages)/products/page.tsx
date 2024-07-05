@@ -22,7 +22,7 @@ export default function Products(){
 
     useEffect(() => {
       getProducts()
-        console.log(products[0], "<<<<<<<<<<<<<<<<<<<<<<<<<<<")
+        // console.log(products[0], "<<<<<<<<<<<<<<<<<<<<<<<<<<<")
     }, [])
     
 

@@ -5,7 +5,7 @@ import { ObjectId } from "mongodb"
 import { useEffect, useState } from "react"
 
 interface WishlistModel {
-    _id: ObjectId
+    _id: ObjectId | string
     userId: ObjectId
     productId: ObjectId
     createdAt: Date
@@ -28,9 +28,9 @@ export default function Wishlists() {
         setWishlists(data)
     }
 
-    async function deleteWishlist(): Promise<void> {
+    async function deleteWishlist(_id: string): Promise<void> {
         const res = await fetch("http://localhost:3000/api/wishlists", {
-            method: "DELETE"
+            method: "delete"
         })
 
         if(!res.ok) {
@@ -95,7 +95,7 @@ export default function Wishlists() {
                         </td>
                         <td>{el.product.price}</td>
                         <th>
-                        <button className="btn btn-ghost btn-xs" onClick={deleteWishlist}>Delete</button>
+                            <button className="btn btn-ghost btn-xs" onClick={deleteWishlist({el._id})}>Delete</button>
                         </th>
                     </tr>
                 ))}
