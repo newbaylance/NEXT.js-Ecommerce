@@ -1,16 +1,36 @@
-export default function Card() {
+import { ObjectId } from "mongodb"
+
+
+interface Props {
+  key: number
+  product: {
+    _id: ObjectId | string
+    name: string
+    slug: string
+    description: string
+    excerpt: string
+    price: number
+    tags: string[]
+    thumbnail: string
+    image: string[]
+    createdAt: Date
+    updatedAt: Date
+  }
+}
+
+export default function Card(props: Props) {
     return(
 <div className="card bg-base-100 w-96 shadow-xl">
   <figure>
     <img
-      src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
-      alt="Shoes" />
+      src={props.product.image[0]}
+      alt={props.product.slug} />
   </figure>
   <div className="card-body">
-    <h2 className="card-title">Shoes!</h2>
-    <p>If a dog chews shoes whose shoes does he choose?</p>
+    <h2 className="card-title">{props.product.name}</h2>
+    <p>{props.product.excerpt}</p>
     <div className="card-actions justify-end">
-      <button className="btn btn-primary">Buy Now</button>
+      <button className="btn btn-primary">Add Wishlist</button>
     </div>
   </div>
 </div>

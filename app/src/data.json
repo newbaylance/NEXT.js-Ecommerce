@@ -1,0 +1,202 @@
+[
+    {
+        "name": "Nike Air Max",
+        "slug": "nike-air-max",
+        "description": "A comfortable and stylish running shoe with air cushioning.",
+        "excerpt": "Comfortable running shoe with air cushioning.",
+        "price": 120000,
+        "tags": ["running", "comfortable", "Nike"],
+        "thumbnail": "https://images.jdsports.id/i/jpl/jd_921826-101_a?w=700&resmode=sharp&qlt=70&fmt=webp",
+        "image": ["https://images.jdsports.id/i/jpl/jd_921826-101_a?w=700&resmode=sharp&qlt=70&fmt=webp", "https://images.jdsports.id/i/jpl/jd_921826-101_f?w=700&resmode=sharp&qlt=70&fmt=webp"]
+    },
+    {
+        "name": "Adidas Ultraboost",
+        "slug": "adidas-ultraboost",
+        "description": "High-performance running shoe with responsive boost midsole.",
+        "excerpt": "High-performance running shoe.",
+        "price": 180000,
+        "tags": ["running", "performance", "Adidas"],
+        "thumbnail": "https://images.jdsports.id/i/jpl/jd_GZ0127_a?w=700&resmode=sharp&qlt=70&fmt=webp",
+        "image": ["https://images.jdsports.id/i/jpl/jd_GZ0127_a?w=700&resmode=sharp&qlt=70&fmt=webp", "https://images.jdsports.id/i/jpl/jd_GZ0127_b?w=700&resmode=sharp&qlt=70&fmt=webp"]
+    },
+    {
+        "name": "Puma RS-X",
+        "slug": "puma-rs-x",
+        "description": "Retro-inspired sneakers with modern comfort.",
+        "excerpt": "Retro-inspired sneakers.",
+        "price": 110000,
+        "tags": ["retro", "comfortable", "Puma"],
+        "thumbnail": "https://images.jdsports.id/i/jpl/jd_396464-07_a?w=700&resmode=sharp&qlt=70&fmt=webp",
+        "image": ["https://images.jdsports.id/i/jpl/jd_396464-07_a?w=700&resmode=sharp&qlt=70&fmt=webp", "https://images.jdsports.id/i/jpl/jd_396464-07_e?w=700&resmode=sharp&qlt=70&fmt=webp"]
+    },
+    {
+        "name": "Reebok Classic",
+        "slug": "reebok-classic",
+        "description": "Timeless design with modern updates for comfort.",
+        "excerpt": "Timeless design with modern comfort.",
+        "price": 90000,
+        "tags": ["classic", "comfortable", "Reebok"],
+        "thumbnail": "https://images.jdsports.id/i/jpl/jd_FB1396-160_a?w=700&resmode=sharp&qlt=70&fmt=webp",
+        "image": ["https://images.jdsports.id/i/jpl/jd_FB1396-160_a?w=700&resmode=sharp&qlt=70&fmt=webp", "https://images.jdsports.id/i/jpl/jd_FB1396-160_f?w=700&resmode=sharp&qlt=70&fmt=webp"]
+    },
+    {
+        "name": "New Balance 990v5",
+        "slug": "new-balance-990v5",
+        "description": "Premium cushioning and support for everyday wear.",
+        "excerpt": "Premium cushioning and support.",
+        "price": 175000,
+        "tags": ["premium", "support", "New Balance"],
+        "thumbnail": "https://images.jdsports.id/i/jpl/jd_U574LGG_a?w=700&resmode=sharp&qlt=70&fmt=webp",
+        "image": ["https://images.jdsports.id/i/jpl/jd_U574LGG_a?w=700&resmode=sharp&qlt=70&fmt=webp", "https://images.jdsports.id/i/jpl/jd_U574LGG_e?w=700&resmode=sharp&qlt=70&fmt=webp"]
+    },
+    {
+        "name": "Asics Gel-Kayano",
+        "slug": "asics-gel-kayano",
+        "description": "Stability running shoe with gel cushioning.",
+        "excerpt": "Stability running shoe.",
+        "price": 160000,
+        "tags": ["stability", "running", "Asics"],
+        "thumbnail": "https://images.jdsports.id/i/jpl/jd_1201A792403_a?w=700&resmode=sharp&qlt=70&fmt=webp",
+        "image": ["https://images.jdsports.id/i/jpl/jd_1201A792403_a?w=700&resmode=sharp&qlt=70&fmt=webp", "https://images.jdsports.id/i/jpl/jd_1201A792403_d?w=700&resmode=sharp&qlt=70&fmt=webp"]
+    },
+    {
+        "name": "Nike Air Max2",
+        "slug": "nike-air-max2",
+        "description": "A comfortable and stylish running shoe with air cushioning.",
+        "excerpt": "Comfortable running shoe with air cushioning.",
+        "price": 120000,
+        "tags": ["running", "comfortable", "Nike"],
+        "thumbnail": "https://images.jdsports.id/i/jpl/jd_921826-101_a?w=700&resmode=sharp&qlt=70&fmt=webp",
+        "image": ["https://images.jdsports.id/i/jpl/jd_921826-101_a?w=700&resmode=sharp&qlt=70&fmt=webp", "https://images.jdsports.id/i/jpl/jd_921826-101_f?w=700&resmode=sharp&qlt=70&fmt=webp"]
+    },
+    {
+        "name": "Adidas Ultraboost2",
+        "slug": "adidas-ultraboost2",
+        "description": "High-performance running shoe with responsive boost midsole.",
+        "excerpt": "High-performance running shoe.",
+        "price": 180000,
+        "tags": ["running", "performance", "Adidas"],
+        "thumbnail": "https://images.jdsports.id/i/jpl/jd_GZ0127_a?w=700&resmode=sharp&qlt=70&fmt=webp",
+        "image": ["https://images.jdsports.id/i/jpl/jd_GZ0127_a?w=700&resmode=sharp&qlt=70&fmt=webp", "https://images.jdsports.id/i/jpl/jd_GZ0127_b?w=700&resmode=sharp&qlt=70&fmt=webp"]
+    },
+    {
+        "name": "Puma RS-X2",
+        "slug": "puma-rs-x2",
+        "description": "Retro-inspired sneakers with modern comfort.",
+        "excerpt": "Retro-inspired sneakers.",
+        "price": 110000,
+        "tags": ["retro", "comfortable", "Puma"],
+        "thumbnail": "https://images.jdsports.id/i/jpl/jd_396464-07_a?w=700&resmode=sharp&qlt=70&fmt=webp",
+        "image": ["https://images.jdsports.id/i/jpl/jd_396464-07_a?w=700&resmode=sharp&qlt=70&fmt=webp", "https://images.jdsports.id/i/jpl/jd_396464-07_e?w=700&resmode=sharp&qlt=70&fmt=webp"]
+    },
+    {
+        "name": "Reebok Classic2",
+        "slug": "reebok-classic2",
+        "description": "Timeless design with modern updates for comfort.",
+        "excerpt": "Timeless design with modern comfort.",
+        "price": 90000,
+        "tags": ["classic", "comfortable", "Reebok"],
+        "thumbnail": "https://images.jdsports.id/i/jpl/jd_FB1396-160_a?w=700&resmode=sharp&qlt=70&fmt=webp",
+        "image": ["https://images.jdsports.id/i/jpl/jd_FB1396-160_a?w=700&resmode=sharp&qlt=70&fmt=webp", "https://images.jdsports.id/i/jpl/jd_FB1396-160_f?w=700&resmode=sharp&qlt=70&fmt=webp"]
+    },
+    {
+        "name": "New Balance 990v52",
+        "slug": "new-balance-990v52",
+        "description": "Premium cushioning and support for everyday wear.",
+        "excerpt": "Premium cushioning and support.",
+        "price": 175000,
+        "tags": ["premium", "support", "New Balance"],
+        "thumbnail": "https://images.jdsports.id/i/jpl/jd_U574LGG_a?w=700&resmode=sharp&qlt=70&fmt=webp",
+        "image": ["https://images.jdsports.id/i/jpl/jd_U574LGG_a?w=700&resmode=sharp&qlt=70&fmt=webp", "https://images.jdsports.id/i/jpl/jd_U574LGG_e?w=700&resmode=sharp&qlt=70&fmt=webp"]
+    },
+    {
+        "name": "Asics Gel-Kayano2",
+        "slug": "asics-gel-kayano2",
+        "description": "Stability running shoe with gel cushioning.",
+        "excerpt": "Stability running shoe.",
+        "price": 160000,
+        "tags": ["stability", "running", "Asics"],
+        "thumbnail": "https://images.jdsports.id/i/jpl/jd_1201A792403_a?w=700&resmode=sharp&qlt=70&fmt=webp",
+        "image": ["https://images.jdsports.id/i/jpl/jd_1201A792403_a?w=700&resmode=sharp&qlt=70&fmt=webp", "https://images.jdsports.id/i/jpl/jd_1201A792403_d?w=700&resmode=sharp&qlt=70&fmt=webp"]
+    },
+    {
+        "name": "Nike Air Max3",
+        "slug": "nike-air-max3",
+        "description": "A comfortable and stylish running shoe with air cushioning.",
+        "excerpt": "Comfortable running shoe with air cushioning.",
+        "price": 120000,
+        "tags": ["running", "comfortable", "Nike"],
+        "thumbnail": "https://images.jdsports.id/i/jpl/jd_921826-101_a?w=700&resmode=sharp&qlt=70&fmt=webp",
+        "image": ["https://images.jdsports.id/i/jpl/jd_921826-101_a?w=700&resmode=sharp&qlt=70&fmt=webp", "https://images.jdsports.id/i/jpl/jd_921826-101_f?w=700&resmode=sharp&qlt=70&fmt=webp"]
+    },
+    {
+        "name": "Adidas Ultraboost3",
+        "slug": "adidas-ultraboost3",
+        "description": "High-performance running shoe with responsive boost midsole.",
+        "excerpt": "High-performance running shoe.",
+        "price": 180000,
+        "tags": ["running", "performance", "Adidas"],
+        "thumbnail": "https://images.jdsports.id/i/jpl/jd_GZ0127_a?w=700&resmode=sharp&qlt=70&fmt=webp",
+        "image": ["https://images.jdsports.id/i/jpl/jd_GZ0127_a?w=700&resmode=sharp&qlt=70&fmt=webp", "https://images.jdsports.id/i/jpl/jd_GZ0127_b?w=700&resmode=sharp&qlt=70&fmt=webp"]
+    },
+    {
+        "name": "Puma RS-X3",
+        "slug": "puma-rs-x3",
+        "description": "Retro-inspired sneakers with modern comfort.",
+        "excerpt": "Retro-inspired sneakers.",
+        "price": 110000,
+        "tags": ["retro", "comfortable", "Puma"],
+        "thumbnail": "https://images.jdsports.id/i/jpl/jd_396464-07_a?w=700&resmode=sharp&qlt=70&fmt=webp",
+        "image": ["https://images.jdsports.id/i/jpl/jd_396464-07_a?w=700&resmode=sharp&qlt=70&fmt=webp", "https://images.jdsports.id/i/jpl/jd_396464-07_e?w=700&resmode=sharp&qlt=70&fmt=webp"]
+    },
+    {
+        "name": "Reebok Classic3",
+        "slug": "reebok-classic3",
+        "description": "Timeless design with modern updates for comfort.",
+        "excerpt": "Timeless design with modern comfort.",
+        "price": 90000,
+        "tags": ["classic", "comfortable", "Reebok"],
+        "thumbnail": "https://images.jdsports.id/i/jpl/jd_FB1396-160_a?w=700&resmode=sharp&qlt=70&fmt=webp",
+        "image": ["https://images.jdsports.id/i/jpl/jd_FB1396-160_a?w=700&resmode=sharp&qlt=70&fmt=webp", "https://images.jdsports.id/i/jpl/jd_FB1396-160_f?w=700&resmode=sharp&qlt=70&fmt=webp"]
+    },
+    {
+        "name": "New Balance 990v53",
+        "slug": "new-balance-990v53",
+        "description": "Premium cushioning and support for everyday wear.",
+        "excerpt": "Premium cushioning and support.",
+        "price": 175000,
+        "tags": ["premium", "support", "New Balance"],
+        "thumbnail": "https://images.jdsports.id/i/jpl/jd_U574LGG_a?w=700&resmode=sharp&qlt=70&fmt=webp",
+        "image": ["https://images.jdsports.id/i/jpl/jd_U574LGG_a?w=700&resmode=sharp&qlt=70&fmt=webp", "https://images.jdsports.id/i/jpl/jd_U574LGG_e?w=700&resmode=sharp&qlt=70&fmt=webp"]
+    },
+    {
+        "name": "Asics Gel-Kayano3",
+        "slug": "asics-gel-kayano3",
+        "description": "Stability running shoe with gel cushioning.",
+        "excerpt": "Stability running shoe.",
+        "price": 160000,
+        "tags": ["stability", "running", "Asics"],
+        "thumbnail": "https://images.jdsports.id/i/jpl/jd_1201A792403_a?w=700&resmode=sharp&qlt=70&fmt=webp",
+        "image": ["https://images.jdsports.id/i/jpl/jd_1201A792403_a?w=700&resmode=sharp&qlt=70&fmt=webp", "https://images.jdsports.id/i/jpl/jd_1201A792403_d?w=700&resmode=sharp&qlt=70&fmt=webp"]
+    },
+    {
+        "name": "New Balance 990v54",
+        "slug": "new-balance-990v54",
+        "description": "Premium cushioning and support for everyday wear.",
+        "excerpt": "Premium cushioning and support.",
+        "price": 175000,
+        "tags": ["premium", "support", "New Balance"],
+        "thumbnail": "https://images.jdsports.id/i/jpl/jd_U574LGG_a?w=700&resmode=sharp&qlt=70&fmt=webp",
+        "image": ["https://images.jdsports.id/i/jpl/jd_U574LGG_a?w=700&resmode=sharp&qlt=70&fmt=webp", "https://images.jdsports.id/i/jpl/jd_U574LGG_e?w=700&resmode=sharp&qlt=70&fmt=webp"]
+    },
+    {
+        "name": "Asics Gel-Kayano4",
+        "slug": "asics-gel-kayano4",
+        "description": "Stability running shoe with gel cushioning.",
+        "excerpt": "Stability running shoe.",
+        "price": 160000,
+        "tags": ["stability", "running", "Asics"],
+        "thumbnail": "https://images.jdsports.id/i/jpl/jd_1201A792403_a?w=700&resmode=sharp&qlt=70&fmt=webp",
+        "image": ["https://images.jdsports.id/i/jpl/jd_1201A792403_a?w=700&resmode=sharp&qlt=70&fmt=webp", "https://images.jdsports.id/i/jpl/jd_1201A792403_d?w=700&resmode=sharp&qlt=70&fmt=webp"]
+    }
+]

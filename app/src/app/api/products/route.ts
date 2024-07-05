@@ -1,27 +1,12 @@
-import { createProduct, getProduct } from "@/db/models/product";
+import {  createProduct, getProduct } from "@/db/models/product";
 import { z } from "zod";
+const data = require("@/data.json")
 
 export async function POST(request: Request) {
     try {
-        const data = await request.json()
-        console.log(data, "<------- data")
-
-
-        const parsedData = z.object({
-            name: z.string(),
-            size: z.number(),
-            description: z.string(),
-            category: z.string(),
-            imageUrl: z.string()
-        })
-        .safeParse(data)
-
-        if(!parsedData.success) {
-            throw parsedData.error
-        }
-
-
         const newProduct = await createProduct(data)
+        // console.log(data[0], "<<<<<<<<<<<<<<<<");
+        
 
         return Response.json(
         {
@@ -62,14 +47,9 @@ export async function POST(request: Request) {
 
 export async function GET() {
     try {
-        const allProducts = await getProduct()
+        let allProducts = await getProduct()
 
-        return Response.json(
-            {
-                message: "All Products",
-                data: allProducts
-            }
-        )
+        return Response.json(allProducts)
     } catch (error) {
         console.log(error);
         return Response.json(

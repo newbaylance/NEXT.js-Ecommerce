@@ -5,7 +5,7 @@ import { connect, getDB } from "../config";
 const COLLECTION_PRODUCT = "products"
 
 export interface ProductModel {
-    _id: ObjectId | string
+    _id: ObjectId
     name: string
     slug: string
     description: string
@@ -13,21 +13,25 @@ export interface ProductModel {
     price: number
     tags: string[]
     thumbnail: string
-    image: string
+    image: string[]
     createdAt: Date
     updatedAt: Date
 }
 
 
-export type ProductModelInput = Omit<ProductModel, "_id">
 
-export const createProduct = async (product: ProductModelInput) => {
+
+export const createProduct = async (product: ProductModel[]) => {
     const db = await getDB()
-    const modifiedProduct: ProductModelInput = {
-        ...product,
-    }
 
-    const newProduct = await db.collection(COLLECTION_PRODUCT).insertOne(modifiedProduct)
+    const productsAll = product.map(p => ({
+        ...p,
+        createdAt: new Date(),
+        updatedAt: new Date()
+    }))
+    // console.log(productsAll[0], "<----- di modellll")
+
+    const newProduct = await db.collection(COLLECTION_PRODUCT).insertMany(productsAll)
 
     return newProduct
 }
