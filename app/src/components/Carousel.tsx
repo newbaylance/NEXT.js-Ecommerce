@@ -12,8 +12,8 @@ interface Props {
     tags: string[]
     thumbnail: string
     image: string[]
-    createdAt: Date
-    updatedAt: Date
+    createdAt: Date | string
+    updatedAt: Date | string
   }
 }
 
