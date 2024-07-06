@@ -1,7 +1,6 @@
 import Carousel from "@/components/Carousel";
 import Hero from "@/components/Hero";
 import { ProductModel } from "@/db/models/product";
-import Image from "next/image";
 import Link from "next/link";
 
 

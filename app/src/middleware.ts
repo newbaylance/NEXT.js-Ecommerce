@@ -84,5 +84,5 @@ export async function middleware(request:NextRequest) {
 }
 
 export const config = {
-    matcher: ['/api/wishlists']
+    matcher: ['/api/wishlists/:path*']
 }

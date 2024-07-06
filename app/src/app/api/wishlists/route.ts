@@ -18,6 +18,7 @@ export async function POST(request: Request) {
         
 
         const parsedData = z.object({
+            userId: z.string().nonempty(),
             productId: z.string().nonempty()
         })
         .safeParse(data)

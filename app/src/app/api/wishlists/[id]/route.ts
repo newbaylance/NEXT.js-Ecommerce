@@ -1,5 +1,7 @@
 import { getProductBySlug } from "@/db/models/product"
 import { deleteWishlist } from "@/db/models/wishlist"
+import { z } from "zod";
+
 
  
  interface Props {
@@ -11,6 +13,12 @@ import { deleteWishlist } from "@/db/models/wishlist"
  export async function DELETE(request: Request, { params } : Props) {
     const id = params.id
     console.log(id, "idddddddddddddddddddd")
+
+    const parsedData = z.object({
+        userId: z.string().nonempty(),
+        productId: z.string().nonempty()
+    })
+
 
     const wishlistById = await deleteWishlist(id)
 

@@ -80,7 +80,11 @@ export default function Products() {
                         next={fetchMoreData}
                         hasMore={hasMore}
                         loader={<h4>Loading...</h4>}
-                        endMessage={<p>All products have been displayed</p>}
+                        endMessage={
+                            <p className="mt-10" style={{ textAlign: 'center' }}>
+                                <b>Yay! You have seen it all</b>
+                            </p>
+                        }
                     >
                         <div className="grid grid-cols-2 gap-4">
                             {loadedProducts.map((el, i) => (
