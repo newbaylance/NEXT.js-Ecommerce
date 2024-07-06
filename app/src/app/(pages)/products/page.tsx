@@ -3,14 +3,17 @@
 import Card from "@/components/Card";
 import { ProductModel } from "@/db/models/product";
 import { useEffect, useState } from "react";
+import InfiniteScroll from "react-infinite-scroll-component";
 
-const ITEMS_PER_PAGE = 8;
+const ITEMS_PER_LOAD = 4;
 
 export default function Products() {
     const [products, setProducts] = useState<ProductModel[]>([])
     const [searchTerm, setSearchTerm] = useState("")
     const [filteredProducts, setFilteredProducts] = useState<ProductModel[]>([])
-    const [currentPage, setCurrentPage] = useState(1)
+    const [loadedProducts, setLoadedProducts] = useState<ProductModel[]>([])
+    const [hasMore, setHasMore] = useState(true)
+    const [page, setPage] = useState(1)
 
     async function getProducts(): Promise<void> {
         const res = await fetch("http://localhost:3000/api/products")
@@ -34,16 +37,22 @@ export default function Products() {
             product.name.toLowerCase().includes(searchTerm.toLowerCase())
         )
         setFilteredProducts(filtered)
-        setCurrentPage(1) 
+        setPage(1)
+        setLoadedProducts(filtered.slice(0, ITEMS_PER_LOAD))
+        setHasMore(filtered.length > ITEMS_PER_LOAD)
     }, [searchTerm, products])
 
-    
-    const indexOfLastItem = currentPage * ITEMS_PER_PAGE
-    const indexOfFirstItem = indexOfLastItem - ITEMS_PER_PAGE
-    const currentProducts = filteredProducts.slice(indexOfFirstItem, indexOfLastItem)
-
-    
-    const totalPages = Math.ceil(filteredProducts.length / ITEMS_PER_PAGE)
+    const fetchMoreData = () => {
+        if (page * ITEMS_PER_LOAD >= filteredProducts.length) {
+            setHasMore(false)
+            return
+        }
+        setPage(page + 1)
+        setLoadedProducts((prevLoadedProducts) => [
+            ...prevLoadedProducts,
+            ...filteredProducts.slice(page * ITEMS_PER_LOAD, (page + 1) * ITEMS_PER_LOAD)
+        ])
+    }
 
     return (
         <div className="container mx-auto px-4 mt-10 mb-10">
@@ -53,40 +62,32 @@ export default function Products() {
                         <div>
                             <div>
                                 <input
-                                    className="input input-bordered"
+                                    className="input input-bordered join-item"
                                     placeholder="Search"
                                     value={searchTerm}
                                     onChange={(e) => setSearchTerm(e.target.value)}
                                 />
                             </div>
-                            
+                        </div>
+                        <div className="indicator">
+                            <button className="btn join-item" onClick={() => setSearchTerm(searchTerm)}>Search</button>
                         </div>
                     </div>
                 </div>
-                <div className="flex-auto w-75">
-                    <div className="grid grid-cols-2 gap-4">
-                        {currentProducts.map((el, i) => (
-                            <Card key={i} product={el} />
-                        ))}
-                    </div>
-                   
-                    <div className="flex justify-center mt-8 mr-20">
-                        <button
-                            className="btn"
-                            disabled={currentPage === 1}
-                            onClick={() => setCurrentPage(currentPage - 1)}
-                        >
-                            Previous
-                        </button>
-                        <span className="px-4 mt-3">{`Page ${currentPage} of ${totalPages}`}</span>
-                        <button
-                            className="btn"
-                            disabled={currentPage === totalPages}
-                            onClick={() => setCurrentPage(currentPage + 1)}
-                        >
-                            Next
-                        </button>
-                    </div>
+                <div className="flex-auto w-75 ...">
+                    <InfiniteScroll
+                        dataLength={loadedProducts.length}
+                        next={fetchMoreData}
+                        hasMore={hasMore}
+                        loader={<h4>Loading...</h4>}
+                        endMessage={<p>All products have been displayed</p>}
+                    >
+                        <div className="grid grid-cols-2 gap-4">
+                            {loadedProducts.map((el, i) => (
+                                <Card key={i} product={el} />
+                            ))}
+                        </div>
+                    </InfiniteScroll>
                 </div>
             </div>
         </div>

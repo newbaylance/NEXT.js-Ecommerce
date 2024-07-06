@@ -10,19 +10,3 @@ export async function deleteCookies() {
   }
 
 
-export async function addWishlist (productId: string) {
-    const response = await fetch("http://localhost:3000/api/wishlists", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        productId
-      })
-    })
-    if(!response.ok) {
-        throw new Error("Add Wishlist Failed")
-      }
-  
-      redirect("/wishlist")
-}

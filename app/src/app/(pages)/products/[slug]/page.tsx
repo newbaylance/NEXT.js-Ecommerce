@@ -5,6 +5,39 @@ import WishlistButton from '@/components/WishlistButton';
 import { ProductModel } from '@/db/models/product';
 import { cookies } from 'next/headers';
 
+import type { Metadata, ResolvingMetadata } from 'next'
+ 
+interface Props {
+  params: {slug: string}
+}
+ 
+export async function generateMetadata(
+  { params }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  // read route params
+  const id = params.slug
+ 
+  // fetch data
+  const res = await fetch("http://localhost:3000/api/products/" + id, {
+    headers: {
+      Cookie: cookies().toString()
+    }
+  })
+
+  if(!res.ok) {
+      throw new Error("failed to fetch")
+  }
+
+  const product = await res.json()
+ 
+ 
+  return {
+    title: product.name,
+    description: product.description
+  }
+}
+
 async function getProducts(filter: string): Promise<ProductModel> {
     const res = await fetch("http://localhost:3000/api/products/" + filter, {
       headers: {
@@ -18,14 +51,10 @@ async function getProducts(filter: string): Promise<ProductModel> {
 
     const data = await res.json()
 
-    console.log(data, "dataaaaaaaaaaaa");
+    // console.log(data, "dataaaaaaaaaaaa");
     
 
     return data
-}
-
-interface Props {
-  params: {slug: string}
 }
 
 export async function ProductDetail({params}: Props) {

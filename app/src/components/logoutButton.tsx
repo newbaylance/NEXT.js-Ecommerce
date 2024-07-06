@@ -2,7 +2,6 @@
 
 import { deleteCookies } from "@/action";
 
-// Define the interface for the props
 interface LogoutButtonProps {
   name: any;
 }
