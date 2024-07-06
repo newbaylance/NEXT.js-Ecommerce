@@ -1,6 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import Swal from "sweetalert2";
 
 
 interface WishlistButtonProps {
@@ -22,10 +23,10 @@ const WishlistButton: React.FC<WishlistButtonProps> = ({ productId }) => {
           })
         })
         if(!response.ok) {
-            throw new Error("Add Wishlist Failed")
-          }
-
-        router.push("/wishlist")
+          Swal.fire("This Product Already on Wishlist")
+        } else {
+          router.push("/wishlist")
+        }
       
     }
   return (

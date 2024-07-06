@@ -1,5 +1,5 @@
 
-import { createWishlist, deleteWishlist, getWishlistsByUserId } from "@/db/models/wishlist";
+import { createWishlist, deleteWishlist, findWishlist, getWishlistsByUserId } from "@/db/models/wishlist";
 import { ObjectId } from "mongodb";
 import { headers } from "next/headers";
 
@@ -14,11 +14,7 @@ export async function POST(request: Request) {
         const headersList = headers()
         const userId = headersList.get('x-user-id') as string
 
-
-        
-
         const parsedData = z.object({
-            userId: z.string().nonempty(),
             productId: z.string().nonempty()
         })
         .safeParse(data)
@@ -27,23 +23,41 @@ export async function POST(request: Request) {
             throw parsedData.error
         }
 
+        
+        const find = await findWishlist(new ObjectId(userId), new ObjectId(data.productId))
+        // console.log(find, "masuk sini");
 
-        const newWishlist = await createWishlist({
-            userId,
-            productId: data.productId,
-            createdAt: new Date(),
-            updatedAt: new Date()
-        })
 
-        return Response.json(
-        {
-            message: "Wishlist created",
-            data: newWishlist
-        },
-        {
-            status: 201,
-        },
-    )
+        if(find) {
+            return Response.json(
+                {
+                    message: "This Product Already on Wishlist",
+                },
+                {
+                    status: 400,
+                }
+            )
+        } else {
+            const newWishlist = await createWishlist({
+                userId,
+                productId: data.productId,
+                createdAt: new Date(),
+                updatedAt: new Date()
+            })
+    
+            return Response.json(
+            {
+                message: "Wishlist created",
+                data: newWishlist
+            },
+            {
+                status: 201,
+            },
+        )
+
+        }
+
+
 
     } catch (error) {
         console.log(error)

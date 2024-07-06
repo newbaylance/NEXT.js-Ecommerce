@@ -1,6 +1,7 @@
 import { ObjectId } from "mongodb"
 import { useRouter } from "next/navigation"
 import { useState } from "react"
+import Swal from "sweetalert2"
 
 
 interface Props {
@@ -35,10 +36,11 @@ export default function Card(props: Props) {
     })
 
     if(!response.ok) {
-      throw new Error("Add Wishlist Failed")
+      Swal.fire("This Product Already on Wishlist")
+    } else {
+      router.push("/wishlist")
     }
 
-    router.push("/wishlist")
   }
     return(
 <div className="card bg-base-100 w-96 shadow-xl">

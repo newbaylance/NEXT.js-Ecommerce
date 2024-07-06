@@ -1,9 +1,7 @@
 import Notification from "@/components/Notification";
-import { error } from "console";
 import { cookies } from "next/headers";
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import Swal from "sweetalert2";
 
 interface MyResponse {
   message: string
@@ -43,7 +41,6 @@ export default function Register() {
       if(!response.ok) {
         return redirect("/register?error=" + result.message)
       }
-
   
       return redirect("/login")
     }
