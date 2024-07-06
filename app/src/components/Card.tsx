@@ -15,8 +15,8 @@ interface Props {
     tags: string[]
     thumbnail: string
     image: string[]
-    createdAt: Date
-    updatedAt: Date
+    createdAt: Date | string
+    updatedAt: Date | string
   }
 }
 
@@ -42,13 +42,13 @@ export default function Card(props: Props) {
   }
     return(
 <div className="card bg-base-100 w-96 shadow-xl">
-  <figure>
+  <figure className="cursor-pointer" onClick={() => router.push(`/products/${props.product.slug}`)}>
     <img
       src={props.product.image[0]}
       alt={props.product.slug} />
   </figure>
   <div className="card-body">
-    <h2 className="card-title">{props.product.name}</h2>
+    <h2 className="card-title cursor-pointer" onClick={() => router.push(`/products/${props.product.slug}`)}>{props.product.name}</h2>
     <p>{props.product.excerpt}</p>
     <div className="card-actions justify-end">
       <button className="btn btn-primary" onClick={() => addWishlist(props.product._id.toString())}>Add Wishlist</button>

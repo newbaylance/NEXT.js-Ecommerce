@@ -13,8 +13,5 @@ import { getProductBySlug } from "@/db/models/product"
 
     const productBySlug = await getProductBySlug(slug)
 
-    return Response.json({
-        message: `Message from /api/products/${slug}`,
-        data: productBySlug
-    })
+    return Response.json(productBySlug)
  }

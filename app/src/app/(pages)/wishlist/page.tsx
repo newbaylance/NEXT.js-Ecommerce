@@ -93,7 +93,7 @@ export default function Wishlists() {
                         <br />
                         <span className="badge badge-ghost badge-sm">tags: {el.product.tags[0]}, {el.product.tags[1]}, {el.product.tags[2]}</span>
                         </td>
-                        <td>{el.product.price}</td>
+                        <td>Rp{el.product.price.toLocaleString("id-ID")}</td>
                         <th>
                             <button className="btn btn-ghost btn-xs" onClick={() => deleteWishlist(el._id.toString())}>Delete</button>
                         </th>
