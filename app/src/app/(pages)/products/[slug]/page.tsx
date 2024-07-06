@@ -1,63 +1,35 @@
-"use client"
+"use server"
 
+
+import WishlistButton from '@/components/WishlistButton';
 import { ProductModel } from '@/db/models/product';
-import { useParams, useRouter } from 'next/navigation';
-import React, { useEffect, useState } from 'react';
+import { cookies } from 'next/headers';
 
-function ProductDetail() {
-const params = useParams()
-const router = useRouter()
+async function getProducts(filter: string): Promise<ProductModel> {
+    const res = await fetch("http://localhost:3000/api/products/" + filter, {
+      headers: {
+        Cookie: cookies().toString()
+      }
+    })
 
-const [product, setProduct] = useState<ProductModel>({
-    _id: "",
-    name: "",
-    slug: "",
-    description: "",
-    excerpt: "",
-    price: 0,
-    tags: [],
-    thumbnail: "",
-    image: [],
-    createdAt: "",
-    updatedAt: ""
-})
-
-    async function getProducts(): Promise<void> {
-        const res = await fetch("http://localhost:3000/api/products/" + params.slug)
-
-        if(!res.ok) {
-            throw new Error("failed to fetch")
-        }
-
-        const data = await res.json()
-
-        console.log(data, "dataaaaaaaaaaaa");
-        
-
-        setProduct(data)
+    if(!res.ok) {
+        throw new Error("failed to fetch")
     }
 
-    useEffect(() => {
-      getProducts()
-        // console.log(product, "<<<<<<<<<<<<<<<<<<<<<<<<<<<")
-    }, [])
+    const data = await res.json()
 
-    async function addWishlist (productId: string) {
-        const response = await fetch("http://localhost:3000/api/wishlists", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify({
-            productId
-          })
-        })
-        if(!response.ok) {
-            throw new Error("Add Wishlist Failed")
-          }
-      
-          router.push("/wishlist")
-    }
+    console.log(data, "dataaaaaaaaaaaa");
+    
+
+    return data
+}
+
+interface Props {
+  params: {slug: string}
+}
+
+export async function ProductDetail({params}: Props) {
+const product = await getProducts(params.slug)
 
   return (
     <div className="min-h-screen bg-gray-100 p-6">
@@ -81,9 +53,7 @@ const [product, setProduct] = useState<ProductModel>({
                 </span>
               ))}
             </div>
-            <button className="btn btn-primary" onClick={() => addWishlist(product._id.toString())}>
-              Add to Wishlist
-            </button>
+            <WishlistButton productId={product._id.toString()}/>
           </div>
         </div>
       </div>

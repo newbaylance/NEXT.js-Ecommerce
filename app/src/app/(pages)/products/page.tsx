@@ -48,9 +48,6 @@ export default function Products() {
                                 />
                             </div>
                         </div>
-                        <div className="indicator">
-                            <button className="btn join-item" onClick={() => setSearchTerm(searchTerm)}>Search</button>
-                        </div>
                     </div>
                 </div>
                 <div className="flex-auto w-75 ...">

@@ -37,15 +37,17 @@ export default async function Home() {
     <div className="hero bg-base-200 min-h-screen">
       <div className="hero-content flex-col lg:flex-row">
         <img
-          src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg"
+          src="https://i.pinimg.com/736x/d2/78/98/d27898254f31b2045ed4177c5195f932.jpg"
           className="max-w-sm rounded-lg shadow-2xl" />
         <div>
-          <h1 className="text-5xl font-bold">Box Office News!</h1>
+          <h1 className="text-5xl font-bold">Our Mission</h1>
           <p className="py-6">
-            Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
-            quasi. In deleniti eaque aut repudiandae et a id nisi.
+            "At Tirta Shoes Store, We don't feel bound by limitations,
+            We feel the excitement and excitement of trying something new and unknown.
+            That's why we continue to innovate and explore urban fashion styles, 
+            every detail is created with great care to bring an exciting experience to your movement."
           </p>
-          <button className="btn btn-primary">Get Started</button>
+          <h3>dr. Tirta Mandira Hudhi, CEO Tirta Shoes Store</h3>
         </div>
       </div>
     </div>

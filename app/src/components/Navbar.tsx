@@ -37,7 +37,7 @@ export default async function Navbar() {
         <li><Link href={"/wishlist"}>Wishlist</Link></li>
       </ul>
     </div>
-    <Link href={"/"} className="btn btn-ghost text-xl">Adimas Sport</Link>
+    <Link href={"/"} className="btn btn-ghost text-xl">Tirta Shoes Store</Link>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
