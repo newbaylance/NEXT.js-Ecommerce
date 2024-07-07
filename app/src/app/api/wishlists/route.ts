@@ -9,12 +9,10 @@ import { z } from "zod";
 export async function POST(request: Request) {
     try {
         const data = await request.json()
-        console.log(data, "<------- data")
-
-        const headersList = headers()
-        const userId = headersList.get('x-user-id') as string
+        console.log(data, "<------- data di route wishlist")
 
         const parsedData = z.object({
+            userId: z.string().nonempty(),
             productId: z.string().nonempty()
         })
         .safeParse(data)
@@ -24,7 +22,7 @@ export async function POST(request: Request) {
         }
 
         
-        const find = await findWishlist(new ObjectId(userId), new ObjectId(data.productId))
+        const find = await findWishlist(new ObjectId(data.userId), new ObjectId(data.productId))
         // console.log(find, "masuk sini");
 
 
@@ -39,7 +37,7 @@ export async function POST(request: Request) {
             )
         } else {
             const newWishlist = await createWishlist({
-                userId,
+                userId: data.userId,
                 productId: data.productId,
                 createdAt: new Date(),
                 updatedAt: new Date()
@@ -123,11 +121,20 @@ export async function GET(request: Request) {
 
 export async function DELETE(request: Request) {
     try {
-        const { _id } = await request.json()
-        console.log(_id, "<------- data")
+        const data = await request.json()
+        console.log(data, "<------- data")
+
+        const parsedData = z.object({
+            userId: z.string().nonempty(),
+            productId: z.string().nonempty()
+        }).safeParse(data)
+
+        if(!parsedData.success) {
+            throw parsedData.error
+        }
 
 
-        const deletedData = await deleteWishlist(_id)
+        const deletedData = await deleteWishlist(data.userId, data.productId)
 
         return Response.json(
             {
@@ -139,7 +146,21 @@ export async function DELETE(request: Request) {
             },
         )
     } catch (error) {
-        console.log(error);
+        console.log(error)
+        if(error instanceof z.ZodError) {
+            const errPath = error.issues[0].path[0]
+            const errMessage = error.issues[0].message
+
+            return Response.json(
+                {
+                    message: `${errPath} ${errMessage}`
+                },
+                {
+                    status: 400
+                }
+            )
+        }
+
         return Response.json(
             {
                 message: `Internal Server Error`
@@ -150,3 +171,4 @@ export async function DELETE(request: Request) {
         )
     }
 }
+

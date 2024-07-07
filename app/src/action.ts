@@ -1,6 +1,6 @@
 "use server"
 
-import { cookies } from "next/headers";
+import { cookies, headers } from "next/headers";
 import { redirect } from "next/navigation";
 
 
@@ -9,4 +9,15 @@ export async function deleteCookies() {
     redirect("/login")
   }
 
+export async function userIdHeaders() {
+  try {
+    const headersList = headers()
+    const userIdHeader = headersList.get('x-user-id') as string
 
+    return userIdHeader
+
+  } catch (error) {
+    console.log(error)
+  }
+}
+    

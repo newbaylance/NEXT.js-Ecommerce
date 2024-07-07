@@ -17,7 +17,7 @@ export default function Wishlists() {
     const [wishlists, setWishlists] = useState<WishlistModel[]>([])
 
     async function getWishlists(): Promise<void> {
-        const res = await fetch("http://localhost:3000/api/wishlists")
+        const res = await fetch(process.env.NEXT_PUBLIC_BASE_URL + "/api/wishlists")
 
         if(!res.ok) {
             throw new Error("failed to fetch")
@@ -28,10 +28,17 @@ export default function Wishlists() {
         setWishlists(data)
     }
 
-    async function deleteWishlist(_id: string): Promise<void> {
-        const res = await fetch("http://localhost:3000/api/wishlists/"+ _id, {
-            method: "delete"
-        })
+    async function deleteWishlist(userId: string, productId: string): Promise<void> {
+        const res = await fetch(process.env.NEXT_PUBLIC_BASE_URL + "/api/wishlists/", {
+            method: "DELETE",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+              userId,
+              productId
+            })
+          })
 
         if(!res.ok) {
             throw new Error("failed to delete")
@@ -95,7 +102,7 @@ export default function Wishlists() {
                         </td>
                         <td>Rp{el.product.price.toLocaleString("id-ID")}</td>
                         <th>
-                            <button className="btn btn-ghost btn-xs" onClick={() => deleteWishlist(el._id.toString())}>Delete</button>
+                            <button className="btn btn-ghost btn-xs" onClick={() => deleteWishlist(el.userId.toString(),el.productId.toString())}>Delete</button>
                         </th>
                     </tr>
                 ))}

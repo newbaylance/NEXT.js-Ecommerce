@@ -6,49 +6,49 @@
 
 Silahkan setup project aplikasi kamu:
 
-- [ ] Pilih tema sesuai kesepakatan bersama  instructor, tuliskan dalam README github kamu
-- [ ] Membuat layout aplikasi sesuai tema yang dipilih
-- [ ] Membuat initial data/seeder sesuai struktur data yang ditentukan (Kalian bisa check `db.json` sebagai referensi atau bisa digunakan sebagai data awal)
-  - [ ] Halaman auth
-    - [ ] Register
-    - [ ] Login
-  - [ ] Halaman home
-    - [ ] Komponen Banner
-    - [ ] Komponen Detail info Ecommerce
-    - [ ] Komponen Featured Product (50-10 product) + “see-all”
-  - [ ] Halaman product
-    - [ ] Komponen List Product
-    - [ ] Komponen Search
-    - [ ] Komponen Pagination
-    - [ ] Komponen Add to wishlist
-  - [ ] Halaman detail product
-    - [ ] Komponen Add to wishlist
-  - [ ] Halaman Wishlist
-    - [ ] Komponen list Wishlist (bisa menggunakan card yang sama dengan halaman list product)
-    - [ ] Komponen Remove Wishlist
+- [ v] Pilih tema sesuai kesepakatan bersama  instructor, tuliskan dalam README github kamu
+- [ v] Membuat layout aplikasi sesuai tema yang dipilih
+- [ v] Membuat initial data/seeder sesuai struktur data yang ditentukan (Kalian bisa check `db.json` sebagai referensi atau bisa digunakan sebagai data awal)
+  - [ v] Halaman auth
+    - [v ] Register
+    - [ v] Login
+  - [ v] Halaman home
+    - [ v] Komponen Banner
+    - [ v] Komponen Detail info Ecommerce
+    - [ v] Komponen Featured Product (50-10 product) + “see-all”
+  - [ v] Halaman product
+    - [ v] Komponen List Product
+    - [ v] Komponen Search
+    - [ v] Komponen Pagination
+    - [ v] Komponen Add to wishlist
+  - [ v] Halaman detail product
+    - [ v] Komponen Add to wishlist
+  - [ v] Halaman Wishlist
+    - [ v] Komponen list Wishlist (bisa menggunakan card yang sama dengan halaman list product)
+    - [ v] Komponen Remove Wishlist
 
 ## W2D2
 
 ### NEXT.js Intro
 
-- [ ] Setup NEXT.js project yang menggunakan typescript
-- [ ] Convert halaman-halaman dan komponen-komponen yang dibuat sebelumnya menjadi  pages dan components pada NEXT.js:
-  - [ ] Halaman register: /register
-  - [ ] Halaman login: /login
-  - [ ] Halaman home: /
-    - [ ] Komponen Banner
-    - [ ] Komponen Detail info Ecommerce
-    - [ ] Komponen Featured Product (5-10 product) + “see-all”
-  - [ ] Halaman product: /products
-    - [ ] Komponen List Product
-    - [ ] Komponen Search
-    - [ ] Komponent Pagination
-    - [ ] Komponen Add to wishlist
-  - [ ] Halaman detail product: /products/:slug
-    - [ ] Komponen Add to wishlist
-  - [ ] Halaman wishlist: /wishlist
-    - [ ] Komponen List Wishlist (bisa menggunakan card yang sama dengan halaman list product)
-    - [ ] Komponen Remove Wishlist
+- [ v] Setup NEXT.js project yang menggunakan typescript
+- [ v] Convert halaman-halaman dan komponen-komponen yang dibuat sebelumnya menjadi  pages dan components pada NEXT.js:
+  - [ v] Halaman register: /register
+  - [ v] Halaman login: /login
+  - [ v] Halaman home: /
+    - [ v] Komponen Banner
+    - [ v] Komponen Detail info Ecommerce
+    - [ v] Komponen Featured Product (5-10 product) + “see-all”
+  - [ v] Halaman product: /products
+    - [ v] Komponen List Product
+    - [ v] Komponen Search
+    - [ v] Komponent Pagination
+    - [v ] Komponen Add to wishlist
+  - [ v] Halaman detail product: /products/:slug
+    - [ v] Komponen Add to wishlist
+  - [ v] Halaman wishlist: /wishlist
+    - [ v] Komponen List Wishlist (bisa menggunakan card yang sama dengan halaman list product)
+    - [ v] Komponen Remove Wishlist
 
 > Catatan: Kamu bisa menambahkan halaman sesuai kebutuhan aplikasi kamu
 
@@ -56,19 +56,19 @@ Silahkan setup project aplikasi kamu:
 
 Implementasikan CSR dan SSR pada pada halaman-halaman dan komponen-komponen yang sudah dibuat dengan detail sebagai berikut:
 
-- [ ] Halaman register: /register
-- [ ] Halaman login: /login
-- [ ] Halaman home: / (SSR)
-- [ ] Halaman product: /products (CSR)
-  - [ ] Komponen List Product (CSR)
-  - [ ] Komponen Search (CSR)
-  - [ ] Komponen Pagination (CSR)
-  - [ ] Komponen Add to Wishlist (CSR)
-- [ ] Halaman detail product: /products/:slug (SSR)
-  - [ ] Komponen Add to Wishlist (CSR)
-- [ ] Halaman wishlist: /wishlist
-  - [ ] Komponen List Wishlist (CSR)
-  - [ ] Komponen Remove Wishlist (CSR)
+- [ v] Halaman register: /register
+- [ v] Halaman login: /login
+- [ v] Halaman home: / (SSR)
+- [ v] Halaman product: /products (CSR)
+  - [ v] Komponen List Product (CSR)
+  - [ v] Komponen Search (CSR)
+  - [v ] Komponen Pagination (CSR)
+  - [v ] Komponen Add to Wishlist (CSR)
+- [ v] Halaman detail product: /products/:slug (SSR)
+  - [ v] Komponen Add to Wishlist (CSR)
+- [ v] Halaman wishlist: /wishlist
+  - [ v] Komponen List Wishlist (CSR)
+  - [v ] Komponen Remove Wishlist (CSR)
 
 > Catatan: Disini belum perlu melakukan fetching atau request data
 
@@ -76,40 +76,40 @@ Implementasikan CSR dan SSR pada pada halaman-halaman dan komponen-komponen yang
 
 ### NEXT.js Route Handler
 
-- [ ] Install MongoDB database pada komputer kamu atau menggunakan MongoDB Atlas
-- [ ] Lakukan wiring dan validasi terhadap halaman-halaman dan komponen-komponen yang sudah dibuat.
-  - [ ] Halaman register: /register
-    - [ ] username:string (validation: required, unique)
-    - [ ] email:string  (validation: required, unique, email format)
-    - [ ] password:string  (validation: required, length min 5)
-  - [ ] Halaman login: /login
-    - [ ] email:string  (validation: required, email format)
-    - [ ] password:string  (validation: required)
-  - [ ] Halaman home: / (SSR)
-    - [ ] Halaman product: /products
-    - [ ] Fitur List Product
-    - [ ] Fitur Search
-    - [ ] Fitur Pagination
-    - [ ] Untuk menerapakan infinite scroll salah satu package yang bisa digunakan: react-infinite-scroll
-  - [ ] Fitur Add to Wishlist
-    - [ ] userId: ObjectId  (validation: required)
-    - [ ] productId: ObjectId  (validation: required)
-  - [ ] Halaman detail product: /products/:slug
-    - [ ] Fitur Add to Wishlist
-      - [ ] userId: ObjectId  (validation: required)
-      - [ ] productId: ObjectId  (validation: required)
-  - [ ] Halaman Wishlist
-    - [ ] Fitur List Wishlist
-    - [ ] Fitur Remove to Wishlist
-      - [ ] userId: ObjectId  (validation: required)
-      - [ ] productId: ObjectId  (validation: required)
+- [v ] Install MongoDB database pada komputer kamu atau menggunakan MongoDB Atlas
+- [v ] Lakukan wiring dan validasi terhadap halaman-halaman dan komponen-komponen yang sudah dibuat.
+  - [v ] Halaman register: /register
+    - [ v] username:string (validation: required, unique)
+    - [ v] email:string  (validation: required, unique, email format)
+    - [ v] password:string  (validation: required, length min 5)
+  - [ v] Halaman login: /login
+    - [ v] email:string  (validation: required, email format)
+    - [ v] password:string  (validation: required)
+  - [ v] Halaman home: / (SSR)
+    - [ v] Halaman product: /products
+    - [ v] Fitur List Product
+    - [ v] Fitur Search
+    - [ v] Fitur Pagination
+    - [ v] Untuk menerapakan infinite scroll salah satu package yang bisa digunakan: react-infinite-scroll
+  - [ v] Fitur Add to Wishlist
+    - [ v] userId: ObjectId  (validation: required)
+    - [ v] productId: ObjectId  (validation: required)
+  - [ v] Halaman detail product: /products/:slug
+    - [ v] Fitur Add to Wishlist
+      - [ v] userId: ObjectId  (validation: required)
+      - [ v] productId: ObjectId  (validation: required)
+  - [v ] Halaman Wishlist
+    - [ v] Fitur List Wishlist
+    - [ v] Fitur Remove to Wishlist
+      - [ v] userId: ObjectId  (validation: required)
+      - [ v] productId: ObjectId  (validation: required)
 
 ### NEXT.js Auth
 
 Implementasikan autentikasi pada aplikasi NEXT.js yang sudah dibuat dengan detail sebagai berikut:
 
-- [ ] Hanya user yang sudah login yang bisa menambahkan wishlist produk
-- [ ] Hanya user yang sudah login yang bisa menghapus wishlist produk
+- [ v] Hanya user yang sudah login yang bisa menambahkan wishlist produk
+- [ v] Hanya user yang sudah login yang bisa menghapus wishlist produk
 
 ## W2D4
 

@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description: "#1 Shoes Store",
 };
 
-export default function RootLayout({
+export default function ProductSlugLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;

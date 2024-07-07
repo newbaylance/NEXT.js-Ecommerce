@@ -2,12 +2,13 @@ import { getUserById } from "@/db/models/user";
 import { headers } from "next/headers";
 import { NextResponse } from "next/server";
 
-export async function GET(request: Request) {
-    try {
-        const headersList = headers()
-        const userId = headersList.get('x-user-id');
-        console.log(userId, "<------- data");
 
+
+export async function GET() {
+    const headersList = headers()
+    const userId = headersList.get('x-user-id');
+    console.log(userId, "<------- data");
+    try {
         if (!userId) {
             return new NextResponse(
                 JSON.stringify({ message: 'User not found' }),

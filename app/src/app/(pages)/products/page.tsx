@@ -8,51 +8,51 @@ import InfiniteScroll from "react-infinite-scroll-component";
 const ITEMS_PER_LOAD = 4;
 
 export default function Products() {
-    const [products, setProducts] = useState<ProductModel[]>([])
-    const [searchTerm, setSearchTerm] = useState("")
-    const [filteredProducts, setFilteredProducts] = useState<ProductModel[]>([])
-    const [loadedProducts, setLoadedProducts] = useState<ProductModel[]>([])
-    const [hasMore, setHasMore] = useState(true)
-    const [page, setPage] = useState(1)
+    const [products, setProducts] = useState<ProductModel[]>([]);
+    const [searchTerm, setSearchTerm] = useState("");
+    const [filteredProducts, setFilteredProducts] = useState<ProductModel[]>([]);
+    const [loadedProducts, setLoadedProducts] = useState<ProductModel[]>([]);
+    const [hasMore, setHasMore] = useState(true);
+    const [page, setPage] = useState(1);
 
-    async function getProducts(): Promise<void> {
-        const res = await fetch("http://localhost:3000/api/products")
+    async function getProducts():Promise<any> {
+        const res = await fetch(process.env.NEXT_PUBLIC_BASE_URL + "/api/products");
 
         if (!res.ok) {
-            throw new Error("failed to fetch")
+            throw new Error("failed to fetch");
         }
 
-        const data = await res.json()
+        const data = await res.json();
 
-        setProducts(data)
-        setFilteredProducts(data)
+        setProducts(data);
+        setFilteredProducts(data);
     }
 
     useEffect(() => {
-        getProducts()
-    }, [])
+        getProducts();
+    }, []);
 
     useEffect(() => {
         const filtered = products.filter(product =>
             product.name.toLowerCase().includes(searchTerm.toLowerCase())
-        )
-        setFilteredProducts(filtered)
-        setPage(1)
-        setLoadedProducts(filtered.slice(0, ITEMS_PER_LOAD))
-        setHasMore(filtered.length > ITEMS_PER_LOAD)
-    }, [searchTerm, products])
+        );
+        setFilteredProducts(filtered);
+        setPage(1);
+        setLoadedProducts(filtered.slice(0, ITEMS_PER_LOAD));
+        setHasMore(filtered.length > ITEMS_PER_LOAD);
+    }, [searchTerm, products]);
 
     const fetchMoreData = () => {
         if (page * ITEMS_PER_LOAD >= filteredProducts.length) {
-            setHasMore(false)
-            return
+            setHasMore(false);
+            return;
         }
-        setPage(page + 1)
+        setPage(page + 1);
         setLoadedProducts((prevLoadedProducts) => [
             ...prevLoadedProducts,
             ...filteredProducts.slice(page * ITEMS_PER_LOAD, (page + 1) * ITEMS_PER_LOAD)
-        ])
-    }
+        ]);
+    };
 
     return (
         <div className="container mx-auto px-4 mt-10 mb-10">
@@ -95,5 +95,5 @@ export default function Products() {
                 </div>
             </div>
         </div>
-    )
+    );
 }

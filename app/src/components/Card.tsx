@@ -1,4 +1,6 @@
+import { userIdHeaders } from "@/action"
 import { ObjectId } from "mongodb"
+import { headers } from "next/headers"
 import { useRouter } from "next/navigation"
 import { useState } from "react"
 import Swal from "sweetalert2"
@@ -24,24 +26,33 @@ interface Props {
 export default function Card(props: Props) {
   const router = useRouter()
 
-  async function addWishlist (productId: string) {
-    const response = await fetch("http://localhost:3000/api/wishlists", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        productId
+  
+    async function addWishlist (productId: string) {
+      const userIdHeader = await userIdHeaders()
+
+      // console.log(userIdHeader, "userId")
+      // console.log(productId, "productId")
+
+      if(!userIdHeader) {
+        Swal.fire("You Must Login First")
+      }
+      const response = await fetch(process.env.NEXT_PUBLIC_BASE_URL + "/api/wishlists", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          userId: userIdHeader,
+          productId
+        })
       })
-    })
-
-    if(!response.ok) {
-      Swal.fire("This Product Already on Wishlist")
-    } else {
-      router.push("/wishlist")
+  
+      if(!response.ok) {
+        Swal.fire("This Product Already on Wishlist")
+      } else {
+        router.push("/wishlist")
+      }
     }
-
-  }
     return(
 <div className="card bg-base-100 w-96 shadow-xl">
   <figure className="cursor-pointer" onClick={() => router.push(`/products/${props.product.slug}`)}>

@@ -63,9 +63,14 @@ export const getWishlistsByUserId = async(userId: string) => {
     return getWishlists
 }
 
-export const deleteWishlist = async(_id: string) => {
+export const deleteWishlist = async(userId: string, productId: string) => {
     const db = await getDB()
-    const deleteWishlist = await db.collection(COLLECTION_WISHLIST).deleteOne({_id: new ObjectId(_id)})
+    const deleteWishlist = await db.collection(COLLECTION_WISHLIST)
+    .deleteOne(
+      {
+        userId: new ObjectId(userId),
+        productId: new ObjectId(productId)
+      })
 
     return deleteWishlist
 }
