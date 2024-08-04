@@ -2,5 +2,5 @@
 # My eCommerce App
 ## Ringkasan
 
-My eCommerce App adalah sebuah web aplikasi yang dibangun menguunakan Typescript , framework NEXT.js dan database MongoDB. 
+My eCommerce App adalah sebuah web aplikasi yang dibangun menggunakan Typescript , framework NEXT.js dan database MongoDB. 
 
